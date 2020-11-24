@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		873B4B77256DC5DA002C8436 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B4B75256DC5DA002C8436 /* LaunchScreen.storyboard */; };
 		873B4B82256DC5DA002C8436 /* UsedProductsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B4B81256DC5DA002C8436 /* UsedProductsTests.swift */; };
 		873B4B8D256DC5DA002C8436 /* UsedProductsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B4B8C256DC5DA002C8436 /* UsedProductsUITests.swift */; };
+		873B4BA1256DCF0E002C8436 /* SwiftUIFlux in Frameworks */ = {isa = PBXBuildFile; productRef = 873B4BA0256DCF0E002C8436 /* SwiftUIFlux */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				873B4BA1256DCF0E002C8436 /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +165,9 @@
 			dependencies = (
 			);
 			name = UsedProducts;
+			packageProductDependencies = (
+				873B4BA0256DCF0E002C8436 /* SwiftUIFlux */,
+			);
 			productName = UsedProducts;
 			productReference = 873B4B64256DC5D9002C8436 /* UsedProducts.app */;
 			productType = "com.apple.product-type.application";
@@ -234,6 +239,9 @@
 				Base,
 			);
 			mainGroup = 873B4B5B256DC5D9002C8436;
+			packageReferences = (
+				873B4B9F256DCF0E002C8436 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
+			);
 			productRefGroup = 873B4B65256DC5D9002C8436 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -609,6 +617,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		873B4B9F256DCF0E002C8436 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Dimillian/SwiftUIFlux.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		873B4BA0256DCF0E002C8436 /* SwiftUIFlux */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 873B4B9F256DCF0E002C8436 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
+			productName = SwiftUIFlux;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		873B4B6D256DC5D9002C8436 /* UsedProducts.xcdatamodeld */ = {
