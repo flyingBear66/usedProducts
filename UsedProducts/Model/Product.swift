@@ -15,3 +15,13 @@ struct Product: Codable, Identifiable {
 }
 
 let sampleProduct = Product(id: 0, title: "Used Product")
+
+
+struct ProductDetail: Codable, Identifiable {
+
+    let product: Product
+
+    let moreInfo: String
+}
+
+let sampleProductDetail = ProductDetail(id: 0, product: sampleProduct)

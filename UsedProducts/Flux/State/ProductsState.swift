@@ -9,7 +9,7 @@ import Foundation
 import SwiftUIFlux
 
 struct ProductsState: FluxState, Codable {
-    var products: [Product] = []
+    var products: [Product] = [] // TODO: Change with Dict instead array
 
     enum CodingKeys: String, CodingKey {
         case products

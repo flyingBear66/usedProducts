@@ -34,13 +34,44 @@ struct HomeView: App {
     }
 }
 
+enum Tab: Int, CaseIterable, Identifiable {
+
+    var id: Int {
+        return self.rawValue
+    }
+
+    case products, profile
+}
+
+extension Tab {
+
+    var title: String {
+        switch self {
+        case .products: return "Products"
+        case .profile: return "Profile"
+        }
+    }
+
+    var image: Image {
+        switch self {
+        case .products: return Image(systemName: "list.dash")
+        case .profile: return Image(systemName: "person.crop.circle")
+        }
+    }
+
+    var text: Text {
+        switch self {
+        case .products: return Text("Products")
+        case .profile: return Text("Profile")
+        }
+    }
+}
+
 // MARK: - iOS implementation
 struct TabbarView: View {
     @State var selectedTab = Tab.products
 
-    enum Tab: Int {
-        case products, profile
-    }
+
 
     func tabbarItem(text: String, image: String) -> some View {
         VStack {
@@ -52,18 +83,13 @@ struct TabbarView: View {
 
     var body: some View {
         TabView {
-            ContentView(text: "Products")
-                .tabItem {
-                    Image(systemName: "list.dash")
-                    Text("Products")
-                }
-
-            ContentView(text: "Profile")
-                .tabItem {
-                    Image(systemName: "person.crop.circle")
-                    Text("Profile")
-                }
-
+            ForEach(Tab.allCases) { tab in
+                ContentView(text: tab.title)
+                    .tabItem {
+                        tab.image
+                        tab.text
+                    }
+            }
         }
     }
 }

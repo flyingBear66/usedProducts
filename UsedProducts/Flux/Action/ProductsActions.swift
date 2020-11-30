@@ -22,6 +22,15 @@ struct ProductsActions {
         }
     }
 
+    struct FetchProductDetail: AsyncAction {
+        let productId: Int
+
+        func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
+            let product = sampleProductDetail
+            dispatch(SetProducts(page: page + 1, list: products))
+        }
+    }
+
     struct SetProducts: Action {
         let page: Int
         let list: [Product]
