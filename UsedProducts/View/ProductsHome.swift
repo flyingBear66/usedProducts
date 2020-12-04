@@ -10,20 +10,9 @@ import Combine
 import SwiftUIFlux
 
 struct ProductsHome : View {
+
     @EnvironmentObject private var store: Store<AppState>
     @State private var isSettingPresented = false
-
-    private var segmentedView: some View {
-        ScrollableSelector(items: MoviesMenu.allCases.map{ $0.title() },
-                           selection: Binding<Int>(
-                            get: {
-                                self.selectedMenu.menu.rawValue
-                           },
-                            set: {
-                                self.selectedMenu.menu = MoviesMenu(rawValue: $0)!
-                           })
-        )
-    }
 
     private var settingButton: some View {
         Button(action: {
@@ -34,34 +23,31 @@ struct ProductsHome : View {
             }.frame(width: 30, height: 30)
         }
     }
-    
+
     private var home: some View {
-        Group {
-            MoviesHomeList(menu: $selectedMenu.menu,
-                           pageListener: selectedMenu.pageListener,
-                           headerView: AnyView(segmentedView))
-        }
+        ProductsHomeList()
     }
 
     var body: some View {
         NavigationView {
             Group {
-                homeAsList
+                home
             }
             .navigationBarItems(trailing:
                                     HStack {
                                         settingButton
                                     }
-            ).sheet(isPresented: $isSettingPresented,
-                    content: { SettingsForm() })
+            )
+            .sheet(isPresented: $isSettingPresented,
+                   content: { ContentView(text: "Settings") })
         }
     }
 }
 
-#if DEBUG
-struct MoviesHome_Previews : PreviewProvider {
-    static var previews: some View {
-        MoviesHome().environmentObject(sampleStore)
-    }
-}
-#endif
+//#if DEBUG
+//struct MoviesHome_Previews : PreviewProvider {
+//    static var previews: some View {
+//        MoviesHome().environmentObject(sampleStore)
+//    }
+//}
+//#endif

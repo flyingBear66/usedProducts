@@ -10,29 +10,17 @@ import Combine
 import SwiftUIFlux
 
 struct ProductsHomeList: ConnectedView {
-    typealias StoreState = <#type#>
-
-    typealias V = type
-
-    typealias Body = <#type#>
 
     struct Props {
         let products: [Int]
     }
 
-//    @Binding var menu: MoviesMenu
+    func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
+        return Props(products: state.productsState.products.map { $0.id })
+    }
 
-//    let pageListener: MoviesMenuListPageListener
-//    var headerView: AnyView?
-
-//    func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
-//        return Props(movies: state.moviesState.moviesList[menu] ?? [])
-//    }
-//
     func body(props: Props) -> some View {
-        MoviesList(movies: props.products,
-                   pageListener: pageListener,
-                   headerView: headerView)
-            .navigationBarTitle(menu.title())
+        ProductsList(products: props.products)
+            .navigationBarTitle("Product List Title")
     }
 }

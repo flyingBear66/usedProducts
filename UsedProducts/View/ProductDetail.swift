@@ -8,7 +8,6 @@
 import SwiftUI
 import SwiftUIFlux
 import Combine
-import UI
 
 struct ProductDetail: ConnectedView {
     struct Props {
@@ -19,13 +18,12 @@ struct ProductDetail: ConnectedView {
 
     // MARK: Computed Props
     func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
-
-        return Props(movie: state.productsState.products[0]!)
+        return Props(product: state.productsState.products[0])
     }
 
     // MARK: - Fetch
     func fetchProductDetails() {
-        store.dispatch(action: ProductsActions.FetchProductDetail))
+        store.dispatch(action: ProductsActions.FetchProductDetail(productId: productId))
     }
 
     // MARK: - Body

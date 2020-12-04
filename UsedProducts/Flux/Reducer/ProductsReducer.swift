@@ -13,13 +13,7 @@ func productsStateReducer(state: ProductsState, action: Action) -> ProductsState
     switch action {
     case let action as ProductsActions.SetProducts:
 
-        if action.page == 1 {
-
-            state.products = action.list
-        } else {
-
-            state.products.append(contentsOf: action.list)
-        }
+        state.products = action.list
 
     default:
         break

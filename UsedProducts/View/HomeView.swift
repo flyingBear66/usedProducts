@@ -40,28 +40,31 @@ enum Tab: Int, CaseIterable, Identifiable {
         return self.rawValue
     }
 
-    case products, profile
+    case home, messages ,profile
 }
 
 extension Tab {
 
     var title: String {
         switch self {
-        case .products: return "Products"
+        case .home: return "Home"
+        case .messages: return "Messages"
         case .profile: return "Profile"
         }
     }
 
     var image: Image {
         switch self {
-        case .products: return Image(systemName: "list.dash")
+        case .home: return Image(systemName: "list.dash")
+        case .messages: return Image(systemName: "message")
         case .profile: return Image(systemName: "person.crop.circle")
         }
     }
 
     var text: Text {
         switch self {
-        case .products: return Text("Products")
+        case .home: return Text("Products")
+        case .messages: return Text("Messages")
         case .profile: return Text("Profile")
         }
     }
@@ -69,27 +72,32 @@ extension Tab {
 
 // MARK: - iOS implementation
 struct TabbarView: View {
-    @State var selectedTab = Tab.products
+    @State var selectedTab = Tab.home
 
-
-
-    func tabbarItem(text: String, image: String) -> some View {
+    func tabbarItem(of tab: Tab) -> some View {
         VStack {
-            Image(systemName: image)
-                .imageScale(.large)
-            Text(text)
+            tab.image
+            tab.text
         }
     }
 
     var body: some View {
         TabView {
-            ForEach(Tab.allCases) { tab in
-                ContentView(text: tab.title)
-                    .tabItem {
-                        tab.image
-                        tab.text
-                    }
-            }
+            ProductsHome()
+                .tabItem {
+                    self.tabbarItem(of: .home)
+                }
+
+            ContentView(text: Tab.messages.title)
+                .tabItem {
+                    self.tabbarItem(of: .messages)
+                }
+
+            ContentView(text: Tab.profile.title)
+                .tabItem {
+                    self.tabbarItem(of: .profile)
+
+                }
         }
     }
 }

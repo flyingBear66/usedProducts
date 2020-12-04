@@ -24,17 +24,16 @@ struct ProductRow: ConnectedView {
     func body(props: Props) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
-                Text(props.movie.userTitle)
-                    .titleStyle()
-                    .foregroundColor(.steam_gold)
+                Text(props.product.title)
+                    .foregroundColor(.orange)
                     .lineLimit(2)
                 HStack {
-                    Text(formatter.string(from: props.movie.releaseDate ?? Date()))
+                    Text("Published Date: 2 hours ago")
                         .font(.subheadline)
                         .foregroundColor(.primary)
                         .lineLimit(1)
                 }
-                Text(props.movie.overview)
+                Text("More information \(props.product.title)")
                     .foregroundColor(.secondary)
                     .lineLimit(3)
                     .truncationMode(.tail)

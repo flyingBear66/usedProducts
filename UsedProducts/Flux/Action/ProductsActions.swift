@@ -13,12 +13,10 @@ struct ProductsActions {
     // MARK: - Requests
 
     struct FetchProducts: AsyncAction {
-        let list: [Product]
-        let page: Int
 
         func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
             let products = [sampleProduct]
-            dispatch(SetProducts(page: page + 1, list: products))
+            dispatch(SetProducts(list: products))
         }
     }
 
@@ -26,13 +24,16 @@ struct ProductsActions {
         let productId: Int
 
         func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
-            let product = sampleProductDetail
-            dispatch(SetProducts(page: page + 1, list: products))
+            let product = sampleProduct
+            dispatch(SetDetail(product: product))
         }
     }
 
     struct SetProducts: Action {
-        let page: Int
         let list: [Product]
+    }
+
+    struct SetDetail: Action {
+        let product: Product
     }
 }
