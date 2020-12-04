@@ -24,8 +24,8 @@ struct ProductsList: ConnectedView {
 
     // MARK: - Computed views
     private func productsRows(props: Props) -> some View {
-        ForEach(products, id: \.self) { id in
 
+        ForEach(products, id: \.self) { id in
             NavigationLink(destination: ProductDetail(productId: id)) {
                 ProductRow(productId: id)
             }

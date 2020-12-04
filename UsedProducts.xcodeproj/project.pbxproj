@@ -29,6 +29,7 @@
 		873B4BC9256DD188002C8436 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B4BC8256DD188002C8436 /* Product.swift */; };
 		873B4BD2256DD252002C8436 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B4BD1256DD252002C8436 /* LoggingMiddleware.swift */; };
 		873B4BF1256DD998002C8436 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B4BF0256DD998002C8436 /* HomeView.swift */; };
+		87D17F24257AF392002CC452 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 87D17F23257AF392002CC452 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D17F24257AF392002CC452 /* SDWebImageSwiftUI in Frameworks */,
 				873B4BA1256DCF0E002C8436 /* SwiftUIFlux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +253,7 @@
 			name = UsedProducts;
 			packageProductDependencies = (
 				873B4BA0256DCF0E002C8436 /* SwiftUIFlux */,
+				87D17F23257AF392002CC452 /* SDWebImageSwiftUI */,
 			);
 			productName = UsedProducts;
 			productReference = 873B4B64256DC5D9002C8436 /* UsedProducts.app */;
@@ -325,6 +328,7 @@
 			mainGroup = 873B4B5B256DC5D9002C8436;
 			packageReferences = (
 				873B4B9F256DCF0E002C8436 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */,
+				87D17F22257AF392002CC452 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 873B4B65256DC5D9002C8436 /* Products */;
 			projectDirPath = "";
@@ -725,6 +729,14 @@
 				minimumVersion = 0.5.1;
 			};
 		};
+		87D17F22257AF392002CC452 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -732,6 +744,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 873B4B9F256DCF0E002C8436 /* XCRemoteSwiftPackageReference "SwiftUIFlux" */;
 			productName = SwiftUIFlux;
+		};
+		87D17F23257AF392002CC452 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 87D17F22257AF392002CC452 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

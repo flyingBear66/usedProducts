@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftUIFlux
 import Combine
+import SDWebImageSwiftUI
 
 struct ProductDetail: ConnectedView {
     struct Props {
@@ -18,7 +19,7 @@ struct ProductDetail: ConnectedView {
 
     // MARK: Computed Props
     func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
-        return Props(product: state.productsState.products[0])
+        return Props(product: state.productsState.products[productId])
     }
 
     // MARK: - Fetch
@@ -27,13 +28,36 @@ struct ProductDetail: ConnectedView {
     }
 
     // MARK: - Body
-
+    
     func body(props: Props) -> some View {
-        ZStack(alignment: .bottom) {
-            Text("Product Detail")
+        VStack(alignment: .leading, spacing: 12) {
+            WebImage(url: props.product.imageURL)
+                .resizable()
+                .placeholder {
+                    Rectangle().foregroundColor(.gray)
+                }
+                .frame(width: 300, height: 300, alignment: .center)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Product Detail for \(props.product.title)")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+
+                Text("Placeholder for \(props.product.title)")
+                    .font(.subheadline)
+                    .foregroundColor(.primary)
+            }
+
+            Spacer()
+        }
             .onAppear {
                 self.fetchProductDetails()
             }
-        }
+    }
+}
+
+private extension Product {
+    var imageURL: URL? {
+        URL(string: image + "/30\(id)/30\(id)")
     }
 }

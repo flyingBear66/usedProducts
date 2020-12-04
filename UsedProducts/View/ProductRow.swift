@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftUIFlux
+import SDWebImageSwiftUI
 
 struct ProductRow: ConnectedView {
     struct Props {
@@ -18,11 +19,18 @@ struct ProductRow: ConnectedView {
     var displayListImage = true
 
     func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
-        Props(product: state.productsState.products[0]) // TODO: change with productId
+        Props(product: state.productsState.products[productId]) // TODO: change with productId
     }
 
     func body(props: Props) -> some View {
         HStack {
+            WebImage(url: props.product.imageURL)
+                .resizable()
+                .placeholder {
+                    Rectangle().foregroundColor(.gray)
+                }
+                .frame(width: 100, height: 100, alignment: .center)
+
             VStack(alignment: .leading, spacing: 8) {
                 Text(props.product.title)
                     .foregroundColor(.orange)
@@ -41,5 +49,11 @@ struct ProductRow: ConnectedView {
         }
         .padding(.top, 8)
         .padding(.bottom, 8)
+    }
+}
+
+private extension Product {
+    var imageURL: URL? {
+        URL(string: image + "/30\(id)/30\(id)")
     }
 }
