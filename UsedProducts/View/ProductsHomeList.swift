@@ -12,11 +12,11 @@ import SwiftUIFlux
 struct ProductsHomeList: ConnectedView {
 
     struct Props {
-        let products: [Int]
+        let products: [Product]
     }
 
     func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
-        return Props(products: state.productsState.products.map { $0.id })
+        return Props(products: state.productsState.products)
     }
 
     func body(props: Props) -> some View {

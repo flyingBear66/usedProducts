@@ -30,6 +30,7 @@
 		873B4BD2256DD252002C8436 /* LoggingMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B4BD1256DD252002C8436 /* LoggingMiddleware.swift */; };
 		873B4BF1256DD998002C8436 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B4BF0256DD998002C8436 /* HomeView.swift */; };
 		87D17F24257AF392002CC452 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 87D17F23257AF392002CC452 /* SDWebImageSwiftUI */; };
+		87D17F30257C2988002CC452 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D17F2F257C2988002CC452 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		873B4BC8256DD188002C8436 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		873B4BD1256DD252002C8436 /* LoggingMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingMiddleware.swift; sourceTree = "<group>"; };
 		873B4BF0256DD998002C8436 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		87D17F2F257C2988002CC452 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				872253A025746AB30023D9B6 /* ProductsList.swift */,
 				872253A525746AEE0023D9B6 /* ProductRow.swift */,
 				872253AA25746D0A0023D9B6 /* ProductDetail.swift */,
+				87D17F2F257C2988002CC452 /* ProductCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				873B4BF1256DD998002C8436 /* HomeView.swift in Sources */,
 				873B4BBE256DD05C002C8436 /* ProductsReducer.swift in Sources */,
 				8722539925746A170023D9B6 /* ProductsHomeList.swift in Sources */,
+				87D17F30257C2988002CC452 /* ProductCell.swift in Sources */,
 				87225394257469050023D9B6 /* ProductsHome.swift in Sources */,
 				873B4B6C256DC5D9002C8436 /* ContentView.swift in Sources */,
 			);
