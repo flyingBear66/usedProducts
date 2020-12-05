@@ -21,12 +21,12 @@ struct ProductDetail: ConnectedView {
     func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
         return Props(product: state.productsState.products[productId])
     }
-
+    
     // MARK: - Fetch
     func fetchProductDetails() {
         store.dispatch(action: ProductsActions.FetchProductDetail(productId: productId))
     }
-
+    
     // MARK: - Body
     
     func body(props: Props) -> some View {
@@ -36,23 +36,24 @@ struct ProductDetail: ConnectedView {
                 .placeholder {
                     Rectangle().foregroundColor(.gray)
                 }
-                .frame(width: 300, height: 300, alignment: .center)
-
+                .frame(height: 300, alignment: .center)
+            
             VStack(alignment: .leading, spacing: 4) {
                 Text("Product Detail for \(props.product.title)")
                     .font(.subheadline)
                     .foregroundColor(.primary)
-
+                
                 Text("Placeholder for \(props.product.title)")
                     .font(.subheadline)
                     .foregroundColor(.primary)
             }
-
+            
             Spacer()
         }
-            .onAppear {
-                self.fetchProductDetails()
-            }
+        .padding()
+        .onAppear {
+            self.fetchProductDetails()
+        }
     }
 }
 
