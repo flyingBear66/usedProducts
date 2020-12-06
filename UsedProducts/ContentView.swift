@@ -18,6 +18,8 @@ struct ContentView: View {
     var body: some View {
         Text(text)
             .padding()
+            .foregroundColor(.black)
+            .font(.largeTitle)
     }
 }
 //

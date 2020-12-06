@@ -21,6 +21,6 @@ struct ProductsHomeList: ConnectedView {
 
     func body(props: Props) -> some View {
         ProductsList(products: props.products)
-            .navigationBarTitle("Product List Title")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }

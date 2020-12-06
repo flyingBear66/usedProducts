@@ -9,7 +9,14 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct UserImage: View {
+
     let user: User
+    let isBordered: Bool
+
+    init(user: User, isBordered: Bool = true) {
+        self.user = user
+        self.isBordered = isBordered
+    }
 
     var body: some View {
         WebImage(url: user.imageURL)
@@ -19,7 +26,7 @@ struct UserImage: View {
             }
             .clipShape(Circle())
             .shadow(radius: 10)
-            .overlay(Circle().stroke(Color.blue, lineWidth: 2))
+            .overlay(Circle().stroke(Color.blue, lineWidth: isBordered ? 2 : 0))
     }
 }
 

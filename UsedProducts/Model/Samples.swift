@@ -18,7 +18,9 @@ let sampleProduct1 = Product(
     image: "https://picsum.photos/300/300",
     publishedDate: dateNow,
     owner: sampleUser4,
-    price: Product.Price(amount: 5.55, locale: Locale.current)
+    price: Product.Price(amount: 5.55, locale: Locale.current),
+    categories: [.electronic],
+    isAdvertised: false
 )
 
 let sampleProduct2 = Product(
@@ -27,7 +29,9 @@ let sampleProduct2 = Product(
     image: "https://picsum.photos/301/301",
     publishedDate: dateMinutesBefore,
     owner: sampleUser4,
-    price: Product.Price(amount: 16.89, locale: Locale.current)
+    price: Product.Price(amount: 16.89, locale: Locale.current),
+    categories: [.electronic],
+    isAdvertised: true
 )
 
 let sampleProduct3 = Product(
@@ -36,16 +40,20 @@ let sampleProduct3 = Product(
     image: "https://picsum.photos/302/302",
     publishedDate: dateHoursBefore,
     owner: sampleUser4,
-    price: Product.Price(amount: 33.33, locale: Locale.current)
+    price: Product.Price(amount: 33.33, locale: Locale.current),
+    categories: [.electronic],
+    isAdvertised: false
 )
 
 let sampleProduct4 = Product(
     id: 2,
     title: "Used Product 4",
-    image: "https://picsum.photos/303/303",
+    image: "https://picsum.photos/308/308",
     publishedDate: dateDaysBefore,
     owner: sampleUser4,
-    price: Product.Price(amount: 33.33, locale: Locale.current)
+    price: Product.Price(amount: 33.33, locale: Locale.current),
+    categories: [.electronic],
+    isAdvertised: false
 )
 
 let sampleProduct5 = Product(
@@ -54,7 +62,9 @@ let sampleProduct5 = Product(
     image: "https://picsum.photos/304/304",
     publishedDate: dateDaysBefore,
     owner: sampleUser4,
-    price: Product.Price(amount: 33.33, locale: Locale.current)
+    price: Product.Price(amount: 33.33, locale: Locale.current),
+    categories: [.electronic],
+    isAdvertised: false
 )
 
 let sampleProduct6 = Product(
@@ -63,7 +73,9 @@ let sampleProduct6 = Product(
     image: "https://picsum.photos/305/305",
     publishedDate: dateDaysBefore,
     owner: sampleUser4,
-    price: Product.Price(amount: 33.33, locale: Locale.current)
+    price: Product.Price(amount: 33.33, locale: Locale.current),
+    categories: [.electronic],
+    isAdvertised: false
 )
 
 let sampleUser1 = User(

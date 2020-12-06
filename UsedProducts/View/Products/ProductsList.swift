@@ -100,6 +100,8 @@ struct ProductsList: ConnectedView {
 
     private func content(using geometry: GeometryProxy) -> some View {
         VStack(spacing: self.vSpacing) {
+            Categories()
+
             HStack {
                 Text("Top Products")
                     .font(.headline)

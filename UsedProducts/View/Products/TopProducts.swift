@@ -23,22 +23,18 @@ struct TopProducts: ConnectedView {
             HStack(alignment: .center, spacing: 8) {
                 ForEach(props.products, id: \.self.id) { product in
                     ZStack(alignment: .bottomTrailing) {
+
                         ProductImage(product: product)
                             .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                        Button(action: {
-                            print("Liked")
-                        }) {
-                            HStack {
-                                Image(systemName: "heart.fill").imageScale(.medium)
-                            }.frame(width: 30, height: 30)
-                        }
-                        .foregroundColor(.pink)
+
+                        LikeButton(selected: product.isAdvertised)
                     }
                 }
             }
         }
     }
 }
+
 //
 //struct TopProducts_Previews: PreviewProvider {
 //    static var previews: some View {

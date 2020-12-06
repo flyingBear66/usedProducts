@@ -21,6 +21,10 @@ struct Product: Codable, Identifiable {
 
     let price: Price
 
+    let categories: [Category]
+
+    let isAdvertised: Bool
+
     struct Price: Codable {
 
         let amount: Float

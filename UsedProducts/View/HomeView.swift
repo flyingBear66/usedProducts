@@ -24,7 +24,8 @@ struct HomeView: App {
     var body: some Scene {
         WindowGroup {
             StoreProvider(store: store) {
-                TabbarView().foregroundColor(.blue)
+                TabbarView()
+                    .foregroundColor(.black)
             }
         }
     }
@@ -40,7 +41,7 @@ enum Tab: Int, CaseIterable, Identifiable {
         return self.rawValue
     }
 
-    case home, messages ,profile
+    case home, messages , notifications
 }
 
 extension Tab {
@@ -49,7 +50,7 @@ extension Tab {
         switch self {
         case .home: return "Home"
         case .messages: return "Messages"
-        case .profile: return "Profile"
+        case .notifications: return "Notifications"
         }
     }
 
@@ -57,7 +58,7 @@ extension Tab {
         switch self {
         case .home: return Image(systemName: "list.dash")
         case .messages: return Image(systemName: "message")
-        case .profile: return Image(systemName: "person.crop.circle")
+        case .notifications: return Image(systemName: "megaphone")
         }
     }
 
@@ -65,7 +66,7 @@ extension Tab {
         switch self {
         case .home: return Text("Products")
         case .messages: return Text("Messages")
-        case .profile: return Text("Profile")
+        case .notifications: return Text("Notifications")
         }
     }
 }
@@ -93,12 +94,13 @@ struct TabbarView: View {
                     self.tabbarItem(of: .messages)
                 }
 
-            ContentView(text: Tab.profile.title)
+            ContentView(text: Tab.notifications.title)
                 .tabItem {
-                    self.tabbarItem(of: .profile)
+                    self.tabbarItem(of: .notifications)
 
                 }
         }
+        .accentColor(.red)
     }
 }
 
