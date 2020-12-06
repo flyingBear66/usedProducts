@@ -88,7 +88,7 @@ struct TabbarView: View {
                     self.tabbarItem(of: .home)
                 }
 
-            ContentView(text: Tab.messages.title)
+            MessagesHome()
                 .tabItem {
                     self.tabbarItem(of: .messages)
                 }

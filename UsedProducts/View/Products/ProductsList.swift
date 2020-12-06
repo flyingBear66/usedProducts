@@ -82,21 +82,21 @@ struct ProductsList: ConnectedView {
             loadProducts()
         }
     }
-    
+
     // MARK: - Body
     func body(props: Props) -> some View {
         gridBody(props: props)
         //            listBody(props: props)
     }
-    
+
     private var rows: Int {
         products.count / self.cols
     }
-    
+
     private var cols: Int {
         UIDevice.current.orientation.isLandscape ? 3 : 2
     }
-    
+
     private func content(using geometry: GeometryProxy) -> some View {
         VStack(spacing: self.vSpacing) {
             ForEach((0..<self.rows).map { GridIndex(id: $0) }) { row in

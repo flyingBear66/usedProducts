@@ -11,5 +11,6 @@ import SwiftUIFlux
 func appStateReducer(state: AppState, action: Action) -> AppState {
     var state = state
     state.productsState = productsStateReducer(state: state.productsState, action: action)
+    state.messagesState = messagesStateReducer(state: state.messagesState, action: action)
     return state
 }

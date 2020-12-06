@@ -1,49 +1,50 @@
 //
-//  ProductCell.swift
+//  ProductRow.swift
 //  UsedProducts
 //
-//  Created by Ozgun Zor on 05/12/2020.
+//  Created by Ozgun Zor on 29/11/2020.
 //
 
 import SwiftUI
 import SwiftUIFlux
 import SDWebImageSwiftUI
 
-struct ProductCell: ConnectedView {
+struct ProductRow: ConnectedView {
     struct Props {
         let product: Product
     }
 
     // MARK: - Init
     let productId: Int
-    let width: CGFloat
 
     func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
         Props(product: state.productsState.products[productId]) // TODO: change with productId
     }
 
     func body(props: Props) -> some View {
-        VStack(alignment: .leading) {
+        HStack {
             WebImage(url: props.product.imageURL)
                 .resizable()
                 .placeholder {
                     Rectangle().foregroundColor(.gray)
                 }
-                .frame(width: width, height: 100, alignment: .center)
-            Group {
+                .frame(width: 100, height: 100, alignment: .center)
+
+            VStack(alignment: .leading, spacing: 8) {
                 Text(props.product.title)
                     .foregroundColor(.orange)
-                    .lineLimit(1)
-
-                Text("More information \(props.product.title)")
+                    .lineLimit(2)
+                HStack {
+                    Text("Published Date: \(props.product.publishedDate.timeAgoDisplay)")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                        .lineLimit(1)
+                }
+                Text("More information")
                     .foregroundColor(.secondary)
-                    .lineLimit(3)
+                    .lineLimit(2)
                     .truncationMode(.tail)
-
-                Text("Published Date: 2 hours ago")
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
-            }
+            }.padding(.leading, 8)
         }
         .padding(.top, 8)
         .padding(.bottom, 8)
@@ -55,11 +56,3 @@ private extension Product {
         URL(string: image + "/30\(id)/30\(id)")
     }
 }
-
-//#if DEBUG
-//struct ProductCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProductCell()
-//    }
-//}
-//#endif
