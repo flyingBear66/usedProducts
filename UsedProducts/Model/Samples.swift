@@ -9,6 +9,7 @@ import Foundation
 
 let dateNow = Date()
 let dateMinutesBefore = Date(timeIntervalSinceNow: -123)
+let dateHoursBefore = Date(timeIntervalSinceNow: -23123)
 let dateDaysBefore = Date(timeIntervalSinceNow: -123123)
 
 let sampleProduct1 = Product(
@@ -33,6 +34,33 @@ let sampleProduct3 = Product(
     id: 2,
     title: "Used Product 3",
     image: "https://picsum.photos/302/302",
+    publishedDate: dateHoursBefore,
+    owner: sampleUser4,
+    price: Product.Price(amount: 33.33, locale: Locale.current)
+)
+
+let sampleProduct4 = Product(
+    id: 2,
+    title: "Used Product 4",
+    image: "https://picsum.photos/303/303",
+    publishedDate: dateDaysBefore,
+    owner: sampleUser4,
+    price: Product.Price(amount: 33.33, locale: Locale.current)
+)
+
+let sampleProduct5 = Product(
+    id: 2,
+    title: "Used Product 5",
+    image: "https://picsum.photos/304/304",
+    publishedDate: dateDaysBefore,
+    owner: sampleUser4,
+    price: Product.Price(amount: 33.33, locale: Locale.current)
+)
+
+let sampleProduct6 = Product(
+    id: 2,
+    title: "Used Product 6",
+    image: "https://picsum.photos/305/305",
     publishedDate: dateDaysBefore,
     owner: sampleUser4,
     price: Product.Price(amount: 33.33, locale: Locale.current)

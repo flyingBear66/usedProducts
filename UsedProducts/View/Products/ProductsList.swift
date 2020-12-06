@@ -22,7 +22,7 @@ struct ProductsList: ConnectedView {
     private let vSpacing: CGFloat = 8
     private let hSpacing: CGFloat = 8
     private let vPadding: CGFloat = 8
-    private let hPadding: CGFloat = 8
+    private let hPadding: CGFloat = 15
 
     // MARK: - Public var
     let products: [Product]
@@ -38,7 +38,7 @@ struct ProductsList: ConnectedView {
         return Props()
     }
 
-    // MARK: - Computed views
+    // MARK: - List view pieces
     private func productsRows(props: Props) -> some View {
         ForEach(productIds, id: \.self) { id in
             NavigationLink(destination: ProductDetail(productId: id)) {
@@ -66,6 +66,8 @@ struct ProductsList: ConnectedView {
         }
     }
 
+    // MARK: - List view pieces
+
     private func gridBody(props: Props) -> some View {
         GeometryReader { geometry in
             Group {
@@ -86,7 +88,6 @@ struct ProductsList: ConnectedView {
     // MARK: - Body
     func body(props: Props) -> some View {
         gridBody(props: props)
-        //            listBody(props: props)
     }
 
     private var rows: Int {
@@ -99,6 +100,36 @@ struct ProductsList: ConnectedView {
 
     private func content(using geometry: GeometryProxy) -> some View {
         VStack(spacing: self.vSpacing) {
+            HStack {
+                Text("Top Products")
+                    .font(.headline)
+                    .foregroundColor(.black)
+
+                Spacer()
+
+                Button("See All") {
+                    print("See all tapped")
+                }
+                .foregroundColor(.red)
+                .font(.caption)
+            }
+
+            TopProducts()
+
+            HStack {
+                Text("Porto")
+                    .font(.headline)
+                    .foregroundColor(.black)
+
+                Spacer()
+
+                Button("Edit") {
+                    print("Edit Tapped")
+                }
+                .foregroundColor(.red)
+                .font(.caption)
+            }
+
             ForEach((0..<self.rows).map { GridIndex(id: $0) }) { row in
                 self.rowAtIndex(row.id * self.cols,
                                 geometry: geometry)
@@ -121,7 +152,7 @@ struct ProductsList: ConnectedView {
                 NavigationLink(destination: ProductDetail(productId: index + column.id)) {
                     ProductCell(productId: index + column.id, width: self.contentWidthFor(geometry))
                 }
-                    .frame(width: self.contentWidthFor(geometry))
+                .frame(width: self.contentWidthFor(geometry))
             }
             if isLastRow { Spacer() }
         }

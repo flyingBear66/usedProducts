@@ -15,7 +15,7 @@ struct ProductsActions {
     struct FetchProducts: AsyncAction {
 
         func execute(state: FluxState?, dispatch: @escaping DispatchFunction) {
-            let products = [sampleProduct1, sampleProduct2, sampleProduct3]
+            let products = [sampleProduct1, sampleProduct2, sampleProduct3, sampleProduct4, sampleProduct5, sampleProduct6]
             dispatch(SetProducts(list: products))
         }
     }
