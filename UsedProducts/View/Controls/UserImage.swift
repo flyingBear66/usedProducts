@@ -9,10 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct UserImage: View {
-    let message: Message
+    let user: User
 
     var body: some View {
-        WebImage(url: message.ownerImage)
+        WebImage(url: user.imageURL)
             .resizable()
             .placeholder {
                 Circle().foregroundColor(.gray)
@@ -23,8 +23,14 @@ struct UserImage: View {
     }
 }
 
-private extension Message {
-    var ownerImage: URL? {
-        URL(string: user.image)
+private extension User {
+    var imageURL: URL? {
+        URL(string: image)
     }
 }
+
+//struct UserImage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserImage(message: sampleMessage1)
+//    }
+//}

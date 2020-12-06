@@ -34,11 +34,11 @@ struct MessageRow: ConnectedView {
 
             ZStack(alignment: .bottomTrailing) {
 
-                ProductImage(message: props.message)
+                ProductImage(product: props.message.product)
                     .frame(width: 70, height: 70)
                     .padding(.trailing, 15)
 
-                UserImage(message: props.message)
+                UserImage(user: props.message.user)
                     .frame(width: 30, height: 30)
 
             }.frame(width: 85, height: 70)

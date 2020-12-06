@@ -9,10 +9,10 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ProductImage: View {
-    let message: Message
+    let product: Product
 
     var body: some View {
-        WebImage(url: message.productImage)
+        WebImage(url: product.productImage)
             .resizable()
             .placeholder {
                 Rectangle().foregroundColor(.gray)
@@ -23,11 +23,9 @@ struct ProductImage: View {
     }
 }
 
-
-private extension Message {
+private extension Product {
 
     var productImage: URL? {
-        URL(string: product.image)
+        URL(string: image)
     }
 }
-
