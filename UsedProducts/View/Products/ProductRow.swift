@@ -53,6 +53,6 @@ struct ProductRow: ConnectedView {
 
 private extension Product {
     var imageURL: URL? {
-        URL(string: image + "/30\(id)/30\(id)")
+        URL(string: image)
     }
 }

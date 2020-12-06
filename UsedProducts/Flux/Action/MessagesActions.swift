@@ -24,4 +24,7 @@ struct MessagesActions {
         let list: [Message]
     }
 
+    struct RemoveMessage: Action {
+        let messageId: Int
+    }
 }

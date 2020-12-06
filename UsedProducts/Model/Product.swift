@@ -18,4 +18,13 @@ struct Product: Codable, Identifiable {
     let publishedDate: Date
 
     let owner: User
+
+    let price: Price
+
+    struct Price: Codable {
+
+        let amount: Float
+
+        let locale: Locale
+    }
 }

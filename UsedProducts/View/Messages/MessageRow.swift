@@ -17,37 +17,57 @@ struct MessageRow: ConnectedView {
     // MARK: - Init
     let messageId: Int
 
+    private let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = .current
+        formatter.currencyCode = "EUR"
+        return formatter
+    }()
+
     func map(state: AppState, dispatch: @escaping DispatchFunction) -> Props {
-        Props(message: state.messagesState.messages[messageId]) // TODO: change with productId
+        Props(message: state.messagesState.messages[messageId])
     }
 
     func body(props: Props) -> some View {
         HStack {
-            WebImage(url: props.message.ownerImage)
-                .resizable()
-                .placeholder {
-                    Rectangle().foregroundColor(.gray)
-                }
-                .frame(width: 70, height: 70, alignment: .center)
-                .clipShape(Circle())
-                .shadow(radius: 10)
-                .overlay(Circle().stroke(Color.blue, lineWidth: 2))
 
-            VStack(alignment: .leading, spacing: 8) {
+            ZStack(alignment: .bottomTrailing) {
+
+                ProductImage(message: props.message)
+                    .frame(width: 70, height: 70)
+                    .padding(.trailing, 15)
+
+                UserImage(message: props.message)
+                    .frame(width: 30, height: 30)
+
+            }.frame(width: 85, height: 70)
+
+
+            VStack(alignment: .leading, spacing: 4) {
+
                 Text(props.message.user.name)
                     .foregroundColor(.orange)
                     .lineLimit(1)
-                HStack {
-                    Text(props.message.sentDate.timeAgoDisplay)
-                        .font(.subheadline)
-                        .foregroundColor(.primary)
-                        .lineLimit(1)
-                }
+
                 Text(props.message.text)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
                     .truncationMode(.tail)
+
+                Text(formatter.string(from: NSNumber(value: props.message.product.price.amount)) ?? "N/a")
+                    .foregroundColor(.secondary)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+
             }.padding(.leading, 8)
+
+            Spacer()
+
+            Text(props.message.sentDate.timeAgoDisplay)
+                .font(.subheadline)
+                .foregroundColor(.primary)
+                .lineLimit(1)
         }
         .padding(.top, 8)
         .padding(.bottom, 8)
@@ -63,3 +83,36 @@ private extension Message {
         URL(string: product.image)
     }
 }
+
+struct ProductImage: View {
+    let message: Message
+
+    var body: some View {
+        WebImage(url: message.productImage)
+            .resizable()
+            .placeholder {
+                Rectangle().foregroundColor(.gray)
+            }
+            .clipShape(Rectangle())
+            .shadow(radius: 10)
+            .cornerRadius(8)
+    }
+}
+
+struct UserImage: View {
+    let message: Message
+
+    var body: some View {
+        WebImage(url: message.ownerImage)
+            .resizable()
+            .placeholder {
+                Circle().foregroundColor(.gray)
+            }
+            .clipShape(Circle())
+            .shadow(radius: 10)
+            .overlay(Circle().stroke(Color.blue, lineWidth: 2))
+    }
+}
+
+
+

@@ -11,10 +11,32 @@ let dateNow = Date()
 let dateMinutesBefore = Date(timeIntervalSinceNow: -123)
 let dateDaysBefore = Date(timeIntervalSinceNow: -123123)
 
-let sampleProduct1 = Product(id: 0, title: "Used Product 1", image: "https://picsum.photos", publishedDate: dateNow, owner: sampleUser4)
-let sampleProduct2 = Product(id: 1, title: "Used Product 2", image: "https://picsum.photos", publishedDate: dateMinutesBefore, owner: sampleUser4)
-let sampleProduct3 = Product(id: 2, title: "Used Product 3", image: "https://picsum.photos", publishedDate: dateDaysBefore, owner: sampleUser4)
+let sampleProduct1 = Product(
+    id: 0,
+    title: "Used Product 1",
+    image: "https://picsum.photos/300/300",
+    publishedDate: dateNow,
+    owner: sampleUser4,
+    price: Product.Price(amount: 5.55, locale: Locale.current)
+)
 
+let sampleProduct2 = Product(
+    id: 1,
+    title: "Used Product 2",
+    image: "https://picsum.photos/301/301",
+    publishedDate: dateMinutesBefore,
+    owner: sampleUser4,
+    price: Product.Price(amount: 16.89, locale: Locale.current)
+)
+
+let sampleProduct3 = Product(
+    id: 2,
+    title: "Used Product 3",
+    image: "https://picsum.photos/302/302",
+    publishedDate: dateDaysBefore,
+    owner: sampleUser4,
+    price: Product.Price(amount: 33.33, locale: Locale.current)
+)
 
 let sampleUser1 = User(
     id: 0,

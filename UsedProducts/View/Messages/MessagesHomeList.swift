@@ -27,10 +27,15 @@ struct MessagesHomeList: ConnectedView {
                             MessageRow(messageId: id)
                         }
                     }
+                    .onDelete(perform: delete)
                 }
             }
         }
         .listStyle(PlainListStyle())
+    }
+
+    private func delete(at offsets: IndexSet) {
+        store.dispatch(action: MessagesActions.RemoveMessage(messageId: offsets.first!))
     }
 }
 

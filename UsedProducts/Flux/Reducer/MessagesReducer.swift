@@ -15,6 +15,10 @@ func messagesStateReducer(state: MessagesState, action: Action) -> MessagesState
 
         state.messages = action.list
 
+    case let action as MessagesActions.RemoveMessage:
+
+        state.messages.remove(at: action.messageId)
+
     default:
         break
     }
