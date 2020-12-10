@@ -28,20 +28,20 @@ struct ProductCell: ConnectedView {
             ProductImage(product: props.product)
                 .frame(width: width, height: 150)
 
-            Group {
-                Text(props.product.title)
-                    .foregroundColor(.orange)
-                    .lineLimit(1)
-
-                Text("More information")
-                    .foregroundColor(.primary)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-
-                Text(props.product.publishedDate.timeAgoDisplay)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
+//            Group {
+//                Text(props.product.title)
+//                    .foregroundColor(.orange)
+//                    .lineLimit(1)
+//
+//                Text("More information")
+//                    .foregroundColor(.primary)
+//                    .lineLimit(1)
+//                    .truncationMode(.tail)
+//
+//                Text(props.product.publishedDate.timeAgoDisplay)
+//                    .font(.subheadline)
+//                    .foregroundColor(.secondary)
+//            }
         }
         .padding(.top, 8)
         .padding(.bottom, 8)

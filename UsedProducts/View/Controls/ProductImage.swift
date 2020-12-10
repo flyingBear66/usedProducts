@@ -18,7 +18,6 @@ struct ProductImage: View {
                 Rectangle().foregroundColor(.gray)
             }
             .clipShape(Rectangle())
-            .shadow(radius: 10)
             .cornerRadius(8)
     }
 }

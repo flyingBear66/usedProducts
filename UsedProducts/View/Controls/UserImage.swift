@@ -13,7 +13,7 @@ struct UserImage: View {
     let user: User
     let isBordered: Bool
 
-    init(user: User, isBordered: Bool = true) {
+    init(user: User, isBordered: Bool = false) {
         self.user = user
         self.isBordered = isBordered
     }
@@ -25,7 +25,6 @@ struct UserImage: View {
                 Circle().foregroundColor(.gray)
             }
             .clipShape(Circle())
-            .shadow(radius: 10)
             .overlay(Circle().stroke(Color.blue, lineWidth: isBordered ? 2 : 0))
     }
 }

@@ -9,12 +9,14 @@ import Foundation
 import SwiftUIFlux
 
 struct AppState: FluxState, Codable {
-    var productsState: ProductsState
 
+    var productsState: ProductsState
     var messagesState: MessagesState
+    var notificationsState: NotificationsState
 
     init() {
         self.productsState = ProductsState()
         self.messagesState = MessagesState()
+        self.notificationsState = NotificationsState()
     }
 }

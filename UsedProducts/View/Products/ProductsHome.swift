@@ -45,7 +45,7 @@ struct ProductsHome : View {
         Button(action : {
             self.isProfilePresented = true
         }) {
-            UserImage(user: sampleUser4, isBordered: false)
+            UserImage(user: sampleUser4)
                 .frame(width: 30, height: 30)
         }
     }

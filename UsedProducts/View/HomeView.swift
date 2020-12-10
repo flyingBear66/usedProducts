@@ -94,10 +94,9 @@ struct TabbarView: View {
                     self.tabbarItem(of: .messages)
                 }
 
-            ContentView(text: Tab.notifications.title)
+            NotificationsHome()
                 .tabItem {
                     self.tabbarItem(of: .notifications)
-
                 }
         }
         .accentColor(.red)

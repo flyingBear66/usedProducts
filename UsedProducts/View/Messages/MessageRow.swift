@@ -10,6 +10,7 @@ import SwiftUIFlux
 import SDWebImageSwiftUI
 
 struct MessageRow: ConnectedView {
+
     struct Props {
         let message: Message
     }
@@ -38,7 +39,7 @@ struct MessageRow: ConnectedView {
                     .frame(width: 70, height: 70)
                     .padding(.trailing, 15)
 
-                UserImage(user: props.message.user)
+                UserImage(user: props.message.user, isBordered: true)
                     .frame(width: 30, height: 30)
 
             }.frame(width: 85, height: 70)

@@ -7,10 +7,16 @@
 
 import Foundation
 
+
+// MARK: - Dates
 let dateNow = Date()
 let dateMinutesBefore = Date(timeIntervalSinceNow: -123)
 let dateHoursBefore = Date(timeIntervalSinceNow: -23123)
 let dateDaysBefore = Date(timeIntervalSinceNow: -123123)
+let dateMonthsBefore = Date(timeIntervalSinceNow: -3130000)
+let dateYearsBefore = Date(timeIntervalSinceNow: -63_113_851)
+
+// MARK: - Products
 
 let sampleProduct1 = Product(
     id: 0,
@@ -19,7 +25,7 @@ let sampleProduct1 = Product(
     publishedDate: dateNow,
     owner: sampleUser4,
     price: Product.Price(amount: 5.55, locale: Locale.current),
-    categories: [.electronic],
+    categories: [.electronic, .game],
     isAdvertised: false
 )
 
@@ -46,7 +52,7 @@ let sampleProduct3 = Product(
 )
 
 let sampleProduct4 = Product(
-    id: 2,
+    id: 3,
     title: "Used Product 4",
     image: "https://picsum.photos/308/308",
     publishedDate: dateDaysBefore,
@@ -57,10 +63,10 @@ let sampleProduct4 = Product(
 )
 
 let sampleProduct5 = Product(
-    id: 2,
+    id: 4,
     title: "Used Product 5",
     image: "https://picsum.photos/304/304",
-    publishedDate: dateDaysBefore,
+    publishedDate: dateMonthsBefore,
     owner: sampleUser4,
     price: Product.Price(amount: 33.33, locale: Locale.current),
     categories: [.electronic],
@@ -68,15 +74,17 @@ let sampleProduct5 = Product(
 )
 
 let sampleProduct6 = Product(
-    id: 2,
+    id: 5,
     title: "Used Product 6",
     image: "https://picsum.photos/305/305",
-    publishedDate: dateDaysBefore,
+    publishedDate: dateYearsBefore,
     owner: sampleUser4,
     price: Product.Price(amount: 33.33, locale: Locale.current),
     categories: [.electronic],
     isAdvertised: false
 )
+
+// MARK: - Users
 
 let sampleUser1 = User(
     id: 0,
@@ -102,6 +110,52 @@ let sampleUser4 = User(
     image: "https://media-exp1.licdn.com/dms/image/C4E03AQEQer-_s3O_Xg/profile-displayphoto-shrink_200_200/0?e=1612396800&v=beta&t=veT5iEHDcFNe0Wn5Hc46Ap_Ql73zgYGB6-L-UhbCDnI"
 )
 
-let sampleMessage1 = Message(id: 0, user: sampleUser1, sentDate: dateNow, product: sampleProduct1, text: "Naber Moruk")
-let sampleMessage2 = Message(id: 1, user: sampleUser2, sentDate: dateMinutesBefore, product: sampleProduct2, text: "UTUTUTUTUTUTUTUTUTU")
-let sampleMessage3 = Message(id: 2, user: sampleUser3, sentDate: dateDaysBefore, product: sampleProduct3, text: "Ne biliyim ben yaaaaaa")
+// MARK: - Messages
+
+let sampleMessage1 = Message(
+    id: 0,
+    user: sampleUser1,
+    sentDate: dateNow,
+    product: sampleProduct1,
+    text: "Naber Moruk"
+)
+
+let sampleMessage2 = Message(
+    id: 1,
+    user: sampleUser2,
+    sentDate: dateMinutesBefore,
+    product: sampleProduct2,
+    text: "UTUTUTUTUTUTUTUTUTU"
+)
+
+let sampleMessage3 = Message(
+    id: 2,
+    user: sampleUser3,
+    sentDate: dateDaysBefore,
+    product: sampleProduct3,
+    text: "Ne biliyim ben yaaaaaa"
+)
+
+// MARK: - Notifications
+
+let openProductDetailAction = Notification.Action(text: "Check out detail", type: .openProductDetail)
+
+let sampleNotification1 = Notification(
+    id: 0, title: "Favorited Your Listing",
+    user: sampleUser3,
+    product: sampleProduct5,
+    action: openProductDetailAction
+)
+
+let sampleNotification2 = Notification(
+    id: 1, title: "Favorited Your Listing",
+    user: sampleUser3, product: sampleProduct4,
+    action: openProductDetailAction
+)
+
+let sampleNotification3 = Notification(
+    id: 2, title: "Favorited Your Listing",
+    user: sampleUser2,
+    product: sampleProduct5,
+    action: openProductDetailAction
+)

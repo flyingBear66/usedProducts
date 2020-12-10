@@ -24,6 +24,20 @@ struct LikeButton: View {
     }
 }
 
+struct LikedView: View {
+
+    let selected: Bool
+
+    var body: some View {
+        ZStack {
+            Circle().foregroundColor(.white)
+            Image(systemName: "heart.fill")
+                .foregroundColor(selected ? .pink : .gray)
+        }
+        .shadow(radius: 10)
+    }
+}
+
 struct LikeButton_Previews: PreviewProvider {
     static var previews: some View {
         LikeButton(selected: true)

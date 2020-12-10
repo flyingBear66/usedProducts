@@ -36,11 +36,19 @@ struct CategoryCell: View {
 }
 
 extension Category {
-    var imageName: String{
+
+    var imageName: String {
+
         switch self {
         case .electronic: return "iphone.homebutton"
         case .sportAndOutdoor: return "sportscourt"
-        default: return "swift"
+        case .car: return "car"
+        case .otherVehicles: return "bicycle"
+        case .game: return "swift"
+        case .cloth: return "person.3.fill"
+        case .homeStuff: return "homepod.fill"
+        case .realEstate: return "house.fill"
+        case .music: return "music.quarternote.3"
         }
     }
 
@@ -49,15 +57,28 @@ extension Category {
         switch self {
         case .electronic: return Color.blue
         case .sportAndOutdoor: return Color.green
-        default: return Color.gray
+        case .car: return Color.red
+        case .otherVehicles: return Color.purple
+        case .game: return Color.gray
+        case .cloth: return Color.pink
+        case .homeStuff: return Color.yellow
+        case .realEstate: return Color.orange
+        case .music: return Color.black
         }
     }
 
     var title: String {
+
         switch self {
         case .electronic: return "ELECTRONIC"
         case .sportAndOutdoor: return "SPORT AND OUTDOOR"
-        default: return "OTHER"
+        case .car: return "CAR"
+        case .otherVehicles: return "OTHER VEHICLES"
+        case .game: return "GAME"
+        case .cloth: return "CLOTH"
+        case .homeStuff: return "HOME"
+        case .realEstate: return "REAL ESTATE"
+        case .music: return "MUSIC"
         }
     }
 }
@@ -65,6 +86,6 @@ extension Category {
 struct CategoryCell_Previews: PreviewProvider {
     static var previews: some View {
         CategoryCell(category: .electronic)
-            .frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(width: 20, height: 20, alignment: .center)
     }
 }
